@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#121212">
+    <title>Domain Check Results</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Domain Check Results</h1>
+        <p>Report generated on: {{date}}</p>
+        
+        <div class="summary">
+            <div class="summary-item">
+                <div class="count">{{total_count}}</div>
+                <div>Total Domains</div>
+            </div>
+            <div class="summary-item">
+                <div class="count available">{{available_count}}</div>
+                <div>Available</div>
+            </div>
+            <div class="summary-item">
+                <div class="count unavailable">{{unavailable_count}}</div>
+                <div>Unavailable</div>
+            </div>
+            <div class="summary-item">
+                <div class="count error">{{error_count}}</div>
+                <div>Errors</div>
+            </div>
+        </div>
+        
+        <h2>Domain Details</h2>
+        <p class="table-info">Click on any column header to sort the table.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Domain</th>
+                    <th>Status</th>
+                    <th>Details</th>
+                    {{screenshot_header}}
+                </tr>
+            </thead>
+            <tbody>
+                {{table_rows}}
+            </tbody>
+        </table>
+    </div>
+    
+    <div id="screenshotModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
